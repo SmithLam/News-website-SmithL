@@ -20,27 +20,33 @@ let newsTechList =[]
 let newSportList = []
 
 const apiKey = "964264cf2b5742118275fdb4607af4cf"
-console.log(moment().format("ddddd, mm, yyyy"))
 
 //async go with await
 const loadTechNews = async() =>{
-    let url= `https://newsapi.org/v2/top-headlines?country=us&category=science&pageSize=5&apiKey=${apiKey}`
+    let url= `https://newsapi.org/v2/top-headlines?country=us&category=science&pageSize=10&apiKey=${apiKey}`
     let data = await fetch(url)
-    let result = await data.json();
-    console.log("What is result ",result)
-    newsTechList = result.articles
+    let techresult = await data.json();
+    console.log("What is techresult ",techresult)
+    newsTechList = techresult.articles
     render(newsTechList, "news-tech-area")
-    // document.getElementById('label-tech-area').innerHTML = "Science and Technology Column"
+    document.getElementById('tech-news-label').innerHTML = "Science and Technology Column"
+    let newsTechListNumber = newsTechList.length
+    console.log("What is new tech number,", newsTechListNumber)
+    document.getElementById('tech-article-number').innerHTML = newsTechListNumber
 }
 
 //async go with await
 const loadSportNews = async() =>{
-    let url= `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=5&apiKey=${apiKey}`
+    let url= `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=10&apiKey=${apiKey}`
     let data = await fetch(url)
-    let result = await data.json();
-    console.log("What is result",result)
-    newsSportList = result.articles
+    let sportresult = await data.json();
+    console.log("What is sportresult",sportresult)
+    newsSportList = sportresult.articles
     render(newsSportList, "news-sport-area")
+    document.getElementById('sport-news-label').innerHTML = "Sports Column"
+    let newsSportListNumber = newsSportList.length
+    console.log("What is new sport number,", newsSportListNumber)
+    document.getElementById('sport-article-number').innerHTML = newsSportListNumber
 }
 
 const loadNewSources = () =>{
@@ -51,7 +57,8 @@ const loadNewSources = () =>{
 
 const render = (list,id) =>{
  let newsHTML = list.map( item => 
-  `
+  `<label id="tech-news-label"></label>
+  <label id="sport-news-label"></label>
    <!-- Featured news -->
    <div class="single-news mb-4" style="height:620px; width:500px;">
      <!-- Image -->
@@ -80,6 +87,7 @@ document.getElementById(id).innerHTML = newsHTML
 }
 
 
-
 loadNewSources()
 
+
+console.log("News tech list is", newsTechList)
