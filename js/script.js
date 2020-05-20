@@ -20,6 +20,7 @@ let newsTechList =[]
 let newSportList = []
 
 const apiKey = "964264cf2b5742118275fdb4607af4cf"
+console.log(moment().format("ddddd, mm, yyyy"))
 
 //async go with await
 const loadTechNews = async() =>{
@@ -29,6 +30,7 @@ const loadTechNews = async() =>{
     console.log("What is result ",result)
     newsTechList = result.articles
     render(newsTechList, "news-tech-area")
+    // document.getElementById('label-tech-area').innerHTML = "Science and Technology Column"
 }
 
 //async go with await
@@ -48,28 +50,28 @@ const loadNewSources = () =>{
 
 
 const render = (list,id) =>{
- let newsHTML = list.map( item => `
+ let newsHTML = list.map( item => 
+  `
    <!-- Featured news -->
-   <card>
-   <div class="single-news mb-4" style="height:600px; width:500px">
+   <div class="single-news mb-4" style="height:620px; width:500px;">
      <!-- Image -->
      <div class="view overlay rounded mb-4">
-       <img class="img-responsive text-center" style="height:300px; width:500px; object-fit: cover;" src="${item.urlToImage}" alt="${item.title}">
+       <a href="${item.url}"><img class="img-responsive text-center" style="height:300px; width:500px; object-fit: cover;" src="${item.urlToImage}" alt="${item.title}"></a>
        <a>
          <div class="mask rgba-white-slight"></div>
        </a>
      </div>
      <!-- Data -->
      <div class="news-data d-flex justify-content-space-between">
-       <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>${item.publishedAt}</p>
+       <p class="font-weight-bold dark-grey-text"><i style="color:blue" class="fas fa-clock fa-2X"></i>${moment(item.publishedAt).format('dddd, MMM Do yyyy')}</p>
      </div>
      <!-- Excerpt -->
      <h3 class="font-weight-bold dark-grey-text mb-3"><a>${item.title}</a></h3>
      <p class="dark-grey-text">${item.description}</p>
+     <a href="${item.url}" class="btn btn-primary">Read more</a>
    </div>
    <!-- Featured news -->
  </div>
- </card>
  <!-- Grid column -->
 `
  ).join("")
