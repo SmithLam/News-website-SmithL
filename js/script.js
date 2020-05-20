@@ -1,37 +1,83 @@
-let newsList =[]
+///header-section
+$(document).ready(function() {
+  $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+  });
+});
+// Scrolling Effect
+$(window).on("scroll", function() {
+  if($(window).scrollTop()) {
+        $('nav').addClass('black');
+  }
+  else {
+        $('nav').removeClass('black');
+  }
+})
+
+
+///news-section
+let newsTechList =[]
+let newSportList = []
 
 const apiKey = "964264cf2b5742118275fdb4607af4cf"
 
 //async go with await
-const loadNews = async() =>{
-    let url= `https://newsapi.org/v2/everything?q=vietnam&apiKey=${apiKey}`
+const loadTechNews = async() =>{
+    let url= `https://newsapi.org/v2/top-headlines?country=us&category=science&pageSize=5&apiKey=${apiKey}`
     let data = await fetch(url)
     let result = await data.json();
     console.log("What is result ",result)
-    newsList = result.articles
-    render(newsList)
+    newsTechList = result.articles
+    render(newsTechList, "news-area")
 }
 
-const render = (list) =>{
- console.log("The list are", list)
+//async go with await
+const loadSportNews = async() =>{
+    let url= `https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=5&apiKey=${apiKey}`
+    let data = await fetch(url)
+    let result = await data.json();
+    console.log("What is result",result)
+    newsSportList = result.articles
+    render(newsSportList, "news-sport-area")
+}
+
+const loadNewSources = () =>{
+    loadTechNews()
+    loadSportNews()
+}
+
+
+const render = (list,id) =>{
  let newsHTML = list.map( item => `
-    <div id="news" style="display:flex; justify-content: center; align-items: center; border:1px solid black; margin: 10px">
-    <div id="contents-area">
-     <div id ="title">${item.title}</div>
-     <div id ="source">${item.source.name}</div>
-     <div id ="date">${item.publishedAt}</div>
-    </div>
-    <div id="image-area">
-     <img style="width:300px; height:300px; object-fit: scale-down; float-left" src ="${item.urlToImage}">
-    </div>
-    </div>
+   <!-- Featured news -->
+   <card>
+   <div class="single-news mb-4" style="height:600px; width:500px">
+     <!-- Image -->
+     <div class="view overlay rounded mb-4">
+       <img class="img-responsive text-center" style="height:300px; width:500px; object-fit: cover;" src="${item.urlToImage}" alt="${item.title}">
+       <a>
+         <div class="mask rgba-white-slight"></div>
+       </a>
+     </div>
+     <!-- Data -->
+     <div class="news-data d-flex justify-content-space-between">
+       <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>${item.publishedAt}</p>
+     </div>
+     <!-- Excerpt -->
+     <h3 class="font-weight-bold dark-grey-text mb-3"><a>${item.title}</a></h3>
+     <p class="dark-grey-text">${item.description}</p>
+   </div>
+   <!-- Featured news -->
+ </div>
+ </card>
+ <!-- Grid column -->
 `
  ).join("")
 
-//  document.getElementById("news-area").innerHTML = newsHTML
+document.getElementById(id).innerHTML = newsHTML
 }
 
 
 
+loadNewSources()
 
-loadNews()

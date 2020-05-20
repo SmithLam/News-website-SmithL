@@ -7,27 +7,96 @@
     <!--bootstrap-4.0-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    <h1>Smith's Daily Planet</h1>
-    <div id="news-area">
-        <div id="news" style="display:flex; justify-content: center; border:1px solid black; margin: 10px">
-            <div id="contents-area">
-                <div id ="title">Blahababakaha</div>
-                <div id ="source">The horse's mouth</div>
-                <div id ="date">Yesterday</div>
-
+  <div class="wrapper">
+    <header>
+       <nav>
+          <div class="logo">
+          <a href="index.html" style="text-decoration: none;
+          color: #fff;">SMITH'S DAILY NEWS</a>
+          </div>
+          <div class="menu">
+             <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Search</a></li>
+             </ul>
+          </div>
+       </nav>
+    </header>
+    <!---news section-->
+  
+      <!-- Grid row -->
+      <div class="row d-flex justify-content-center" style= "margin:7%">
+        <!-- Grid column -->
+        <div  id="news-area" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;">
+          <!-- Featured news -->
+          <div class="single-news mb-4" style="height:600px; width:500px">
+            <!-- Image -->
+            <div class="view overlay rounded z-depth-1-half mb-4">
+              <img class="img-responsive"  style="height:300px; width:500px; object-fit: cover" src="http://www.dumpaday.com/wp-content/uploads/2018/01/photos-8-12.jpg" alt="Sample image">
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
             </div>
-            <div id="image-area">
-                <img style="width:300px; height:300px;" src ="https://cdni.rt.com/files/2020.05/xxl/5ec44a362030270c76208610.JPG">
+            <!-- Data -->
+            <div class="news-data d-flex justify-content-space-between">
+              <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>20/08/2018</p>
             </div>
+            <!-- Excerpt -->
+            <h3 class="font-weight-bold dark-grey-text mb-3"><a>Title of the news</a></h3>
+            <p class="dark-grey-text" style="height:500px; width:500px">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+              impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis
+              dolor
+              repellendus.</p>
+          </div>
+          <!-- Featured news -->
         </div>
+        <!-- Grid column --
+         <!-- Grid column -->
+         <div  id="news-sport-area" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;">
+            <!-- Featured news -->
+            <div class="single-news mb-4" style="height:600px">
+              <!-- Image -->
+              <div class="view overlay rounded z-depth-1-half mb-4">
+                <img class="img-responsive"  style="height:300px; width:500px; object-fit: cover;" src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt="Sample image">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!-- Data -->
+              <div class="news-data d-flex justify-content-space-between">
+                <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>20/08/2018</p>
+              </div>
+              <!-- Excerpt -->
+              <h3 class="font-weight-bold dark-grey-text mb-3"><a>Title of the news</a></h3>
+              <p class="dark-grey-text" style="height:500px; width:500px">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis
+                dolor
+                repellendus.</p>
+            </div>
+            <!-- Featured news -->
+          </div>
 
+                    <!-- Grid column -->
+        <!-----news section -->
+  </div>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2020 Smith's News Team<br>
+    Powered by <a href="https://newsapi.org/">News API</a></p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+ <!--footer--> 
 
-
-    </div>
-
-
+ <!--footer--> 
     <!--javascript>
 
     <!--bootstrap-4.0-->
