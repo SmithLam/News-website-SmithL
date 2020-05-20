@@ -28,7 +28,7 @@ const loadTechNews = async() =>{
     let result = await data.json();
     console.log("What is result ",result)
     newsTechList = result.articles
-    render(newsTechList, "news-area")
+    render(newsTechList, "news-tech-area")
 }
 
 //async go with await
