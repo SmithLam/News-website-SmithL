@@ -13,19 +13,20 @@
   <div class="wrapper">
     <header>
        <nav>
-          <div class="logo">
+        <div class=row>
+          <div class="logo col-sm">
           <a href="index.html" style="text-decoration: none;
           color:yellow;">SMITH'S DAILY NEWS</a>
           </div>
-          <div class="menu">
+          <div class="menu col-sm">
              <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
                 <li><a href="#">Search</a></li>
              </ul>
           </div>
+        </div>
        </nav>
     </header>
     <!---news section-->
@@ -39,7 +40,6 @@
       <div class="row d-flex justify-content-center" style= "margin-left:7%; margin-right:7%; margin-top: 0rem;">
         <!-- Grid column -->
         <div  id="news-tech-area" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;">
-        <label id="tech-news-label"></label>
           <!-- Featured news -->
           <div class="single-news mb-4" style="height:600px; width:500px">
             <!-- Image -->
@@ -65,7 +65,6 @@
         <!-- Grid column -->
          <!---- Grid column -->
          <div  id="news-sport-area" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;">
-        <label id="sport-news-label"></label>
             <!-- Featured news -->
             <div class="single-news mb-4" style="height:600px">
               <!-- Image -->
@@ -88,6 +87,10 @@
             </div>
             <!-- Featured news -->
           </div>
+          <div  id="news-tech-area-2" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;"></div>
+          <div  id="news-sport-area-2" class="col-lg-6 col-md-4" style="margin:0;max-width: 600px;"></div>
+          <a class="btn bg-secondary" onclick="loadMoreNewSources()">LOAD MORE</a>
+
 
                     <!-- Grid column -->
         <!-----news section -->

@@ -66,6 +66,11 @@ nav ul li a {
     color: #fff;
     font-size: 16px;
 }
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    background-color: #2B3240!important;
+}
+
+
 
 nav ul li a:hover {
     text-decoration: none;
